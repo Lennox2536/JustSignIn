@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get 'log_in', to: 'sessions#log_in'
   post 'log_in', to: 'sessions#verify'
 
+  get 'log_out', to: 'sessions#log_out'
 
 end

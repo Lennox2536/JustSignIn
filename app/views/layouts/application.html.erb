@@ -21,6 +21,7 @@
 
     <% if @user %>
       <div> Logged in as <%= @user.name %></div>
+      <%= link_to 'Log out', log_out_path %>
     <% end %>
     <%= yield %>
   </body>
