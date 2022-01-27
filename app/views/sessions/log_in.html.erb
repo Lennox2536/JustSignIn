@@ -1,1 +1,5 @@
-log in
+<%= form_for User.new, url: log_in_path do |form| %>
+  Email: <%= form.text_field :email %>
+  Password: <%= form.password_field :password %>
+  <%= form.submit "Log In" %>
+<% end %>

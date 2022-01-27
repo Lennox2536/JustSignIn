@@ -3,12 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    params.permit!
-    user = User.new(params[:user])
+    user = User.new(user_params)
 
     if user.save
-      session[:user_id] = user.id
-      flash.notice = 'Logged in.'
+      flash.notice = 'Account has been created.'
       redirect_to '/home'
     else
       flash.alert = 'Bad input'
@@ -18,10 +16,25 @@ class SessionsController < ApplicationController
   end
 
   def log_in
-
   end
 
   def verify
+    user = User.find_by(email: user_params[:email])&.authenticate(user_params[:password])
 
+    if user
+      flash.notice = 'Logged in'
+      session[:user_id] = user.id
+      redirect_to '/home'
+    else
+      flash.alert = 'Bad email or password'
+      redirect_to '/log_in'
+    end
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

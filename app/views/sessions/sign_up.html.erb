@@ -1,7 +1,7 @@
 <%= form_for User.new, url: sign_up_path do |form| %>
-  <%= form.text_field :name %>
-  <%= form.text_field :email %>
-  <%= form.text_field :password %>
-  <%= form.text_field :password_confirmation %>
+  Name: <%= form.text_field :name %>
+  Email: <%= form.text_field :email %>
+  Password: <%= form.password_field :password %>
+  Password confirmation: <%= form.password_field :password_confirmation %>
   <%= form.submit "Sign Up" %>
 <% end %>
