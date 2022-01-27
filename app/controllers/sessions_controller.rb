@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :ensure_logged_in, :only => :log_out
+
   def sign_up
   end
 

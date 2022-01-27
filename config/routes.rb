@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get 'log_out', to: 'sessions#log_out'
 
+  get 'your_profile', to: 'profiles#your_profile'
+
 end
