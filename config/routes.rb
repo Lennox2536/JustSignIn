@@ -11,4 +11,9 @@ Rails.application.routes.draw do
 
   get 'your_profile', to: 'profiles#your_profile'
 
+  resources :rooms, only: :show do
+    resources :messages, only: :create
+  end
+  
+
 end
