@@ -1,5 +1,5 @@
 <h2>Just Sign In</h2>
 
-<% Room.all.each do |room| %>
-  <%= link_to room.name, room_path(room) %>
+<% if @user %>
+  <%= link_to @user.room.name, room_path(@user.room) %>
 <% end %>

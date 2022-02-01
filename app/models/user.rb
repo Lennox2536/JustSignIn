@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :messages,
            dependent: :delete_all
-  has_many :rooms, through: :messages
+  belongs_to :room
 
   has_secure_password
 end

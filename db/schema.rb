@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_183448) do
+ActiveRecord::Schema.define(version: 2022_02_01_142106) do
 
   create_table "messages", force: :cascade do |t|
     t.text "body"
@@ -34,8 +34,11 @@ ActiveRecord::Schema.define(version: 2022_01_28_183448) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "room_id", null: false
+    t.index ["room_id"], name: "index_users_on_room_id"
   end
 
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "users", "rooms"
 end
